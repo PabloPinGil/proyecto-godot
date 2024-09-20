@@ -29,6 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Iniciar nueva actividad"/>
+        android:text="Iniciar nueva actividad"
+        android:id="@+id/bottomButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
