@@ -34,5 +34,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(context, "MainActivity is no more", Toast.LENGTH_LONG).show();
+    }
 }
