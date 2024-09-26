@@ -22,6 +22,7 @@ public class MonstersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_monsters);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Fragment1()).commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Fragment2()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Fragment3()).commit();
 
         BottomNavigationView bar = findViewById(R.id.bottomNavigation);
         bar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -41,6 +42,9 @@ public class MonstersActivity extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.item3) {
                     Toast.makeText(context, "Este es el tercer Digimon", Toast.LENGTH_LONG).show();
+
+                    Fragment myFragment = new Fragment3();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment).commit();
                 }
 
                 return true;
