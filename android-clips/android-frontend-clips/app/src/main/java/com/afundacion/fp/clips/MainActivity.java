@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse == null) {
+                    Toast.makeText(context, "Could not establish connection", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    int serverCode = error.networkResponse.statusCode;
+                    Toast.makeText(context, "Server status: " + serverCode, Toast.LENGTH_SHORT).show();
+                }
 
             }
         }
