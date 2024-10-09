@@ -27,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
     private Context context = this;
     private ConstraintLayout mainLayout;
     private ProgressBar progressBar;
+    private ClipsList clips;
+
+    public void setClips(ClipsList clips) {
+        this.clips = clips;
+    }
+    public ClipsList getClipsForTest() {
+        return clips;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         progressBar.setVisibility(View.INVISIBLE);
                         Snackbar.make(mainLayout, "List received", Snackbar.LENGTH_LONG).show();
+
+                        setClips(new ClipsList(response));
                     }
                 },
                 new Response.ErrorListener() {
