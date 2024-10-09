@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
+import android.widget.ProgressBar;
 import android.content.Context;
 
 import com.android.volley.Request;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue queue;
     private Context context = this;
     private ConstraintLayout mainLayout;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.queue = Volley.newRequestQueue(context);
         this.mainLayout = findViewById(R.id.main_layout);
+        this.progressBar = findViewById(R.id.barraProgreso);
 
         requestClipList();
 
@@ -65,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestClipList() {
+        progressBar.setVisibility(View.VISIBLE);
+
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 Server.name + "/clips",
@@ -72,12 +78,14 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        progressBar.setVisibility(View.INVISIBLE);
                         Snackbar.make(mainLayout, "List received", Snackbar.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressBar.setVisibility(View.INVISIBLE);
                         if (error.networkResponse == null) {
                            Snackbar.make(mainLayout, "Could not establish connection", Snackbar.LENGTH_LONG).show();
 
