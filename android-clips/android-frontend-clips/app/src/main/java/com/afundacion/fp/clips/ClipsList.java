@@ -10,6 +10,10 @@ import java.util.List;
 public class ClipsList {
     private List<Clip> clips;
 
+    public List<Clip> getClips() {
+        return clips;
+    }
+
     public ClipsList(JSONArray array) {
         clips = new ArrayList<>();
         for (int i = 0; i < array.length(); i++) {
