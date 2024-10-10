@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +31,10 @@ public class ClipViewHolder extends RecyclerView.ViewHolder {
                 Context context = view.getContext();
                 Toast.makeText(context, "Touched cell with clipId: " + clipId, Toast.LENGTH_SHORT).show();
 
+                Intent intent = new Intent(context, VideoActivity.class);
+                intent.putExtra(VideoActivity.INTENT_CLIP_ID, clipId);
+                intent.putExtra(VideoActivity.INTENT_CLIP_URL, clip.getVideoUrl());
+                context.startActivity(intent);
             }
         });
     }

@@ -16,6 +16,7 @@
         android:theme="@style/Theme.Clips"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,6 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".VideoActivity"
+            android:exported="false"
+        />
     </application>
 
 </manifest>
