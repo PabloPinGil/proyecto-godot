@@ -12,6 +12,14 @@ public class Clip {
         return videoTitle;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
     public Clip(JSONObject json) throws JSONException {
         this.id = json.getInt("id");
         this.videoTitle = json.getString("title");
