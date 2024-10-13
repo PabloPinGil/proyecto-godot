@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.afundacion.fp.clips.T001MakingARequest" tests="23" failures="6" errors="0" skipped="0" time="191.24" timestamp="2024-10-13T09:49:10" hostname="localhost">
+  <properties>
+    <property name="device" value="Nexus_S_API_28(AVD) - 9" />
+    <property name="flavor" value="localhost" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="checkRequestSentAndInitialToastShown" classname="com.afundacion.fp.clips.T001MakingARequest" time="6.472">
+    <failure>androidx.test.espresso.NoMatchingViewException: No views in hierarchy found matching: an instance of android.widget.TextView and view.getText() with or without transformation to match: a string containing "Response OK"
+
+View Hierarchy:
++&gt;LinearLayout{id=-1, visibility=VISIBLE, width=360, height=75, has-focus=false, has-focusable=false, has-window-focus=false, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params={(0,36)(wrapxwrap) gr=BOTTOM CENTER ty=TOAST fmt=TRANSLUCENT wanim=0x1030004
+fl=NOT_FOCUSABLE NOT_TOUCHABLE KEEP_SCREEN_ON HARDWARE_ACCELERATED}, tag=null, root-is-layout-requested=false, has-input-connection=false, x=0.0, y=0.0, child-count=1}
+|
++-&gt;MaterialTextView{id=16908299, res-name=message, visibility=VISIBLE, width=288, height=29, has-focus=false, has-focusable=false, has-window-focus=false, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params=android.widget.LinearLayout$LayoutParams&#64;d5fa448, tag=null, root-is-layout-requested=false, has-input-connection=false, x=36.0, y=23.0, text=Response ok: Server is healthy!, input-type=0, ime-target=false, has-links=false}
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.check(ViewInteraction.java:12)
+at com.afundacion.fp.clips.T001MakingARequest.checkRequestSentAndInitialToastShown(T001MakingARequest.java:47)</failure>
+  </testcase>
+  <testcase name="checkRequestSentAndInitialToastShown" classname="com.afundacion.fp.clips.T002MakingARequestAndUsingResponse" time="3.885">
+    <failure>androidx.test.espresso.NoMatchingViewException: No views in hierarchy found matching: an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Response OK: Server is healthy!"
+
+View Hierarchy:
++&gt;LinearLayout{id=-1, visibility=VISIBLE, width=360, height=75, has-focus=false, has-focusable=false, has-window-focus=false, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params={(0,36)(wrapxwrap) gr=BOTTOM CENTER ty=TOAST fmt=TRANSLUCENT wanim=0x1030004
+fl=NOT_FOCUSABLE NOT_TOUCHABLE KEEP_SCREEN_ON HARDWARE_ACCELERATED}, tag=null, root-is-layout-requested=false, has-input-connection=false, x=0.0, y=0.0, child-count=1}
+|
++-&gt;MaterialTextView{id=16908299, res-name=message, visibility=VISIBLE, width=288, height=29, has-focus=false, has-focusable=false, has-window-focus=false, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params=android.widget.LinearLayout$LayoutParams&#64;6f8f00a, tag=null, root-is-layout-requested=false, has-input-connection=false, x=36.0, y=23.0, text=Response ok: Server is healthy!, input-type=0, ime-target=false, has-links=false}
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.check(ViewInteraction.java:12)
+at com.afundacion.fp.clips.T002MakingARequestAndUsingResponse.checkRequestSentAndInitialToastShown(T002MakingARequestAndUsingResponse.java:46)</failure>
+  </testcase>
+  <testcase name="checkRequestSentAndServerErrorToastShown" classname="com.afundacion.fp.clips.T003TakingIntoAccountErrorResponse" time="3.802" />
+  <testcase name="checkMethodExistsAndSendsRequestAndShowsSnackBar" classname="com.afundacion.fp.clips.T004JsonArrayRequest" time="3.846" />
+  <testcase name="checkRequestSentAndServerErrorToastShown" classname="com.afundacion.fp.clips.T005JsonArrayRequestErrorHandling" time="3.89" />
+  <testcase name="checkRequestSentAndServerErrorToastShown" classname="com.afundacion.fp.clips.T006ProgressBar" time="3.96" />
+  <testcase name="checkMethodExistsAndSendsRequestAndShowsSnackBar" classname="com.afundacion.fp.clips.T007ClipsModel" time="3.661" />
+  <testcase name="checkRecyclerViewExistsAndIsCorrect" classname="com.afundacion.fp.clips.T008RecyclerView" time="3.635" />
+  <testcase name="checkRecyclerViewCellXmlIsCorrect" classname="com.afundacion.fp.clips.T009RecyclerViewCell" time="2.563" />
+  <testcase name="checkClipViewHolderClassIsCorrect" classname="com.afundacion.fp.clips.T010ClipViewHolder" time="0.031" />
+  <testcase name="checkRecyclerClassHasCorrectConstructorAndAttributesAndCell1IsShown" classname="com.afundacion.fp.clips.T011CompletingRecyclerView" time="3.711" />
+  <testcase name="checkViewHolderHasCorrectMethodAndCells2to5AreShown" classname="com.afundacion.fp.clips.T011CompletingRecyclerView" time="14.194" />
+  <testcase name="checkToastIsCorrectWhenClickingCells" classname="com.afundacion.fp.clips.T012OnClickListenerForCell" time="7.094" />
+  <testcase name="checkToastIsCorrectWhenStartingVideoActivity" classname="com.afundacion.fp.clips.T013ActivityForVideo" time="7.849" />
+  <testcase name="checkVideoViewPlaysVideo" classname="com.afundacion.fp.clips.T014PlayingVideoFromUrl" time="10.419" />
+  <testcase name="checkPlaysVideoAndFinishes" classname="com.afundacion.fp.clips.T015WhenItsOverItsOver" time="33.136" />
+  <testcase name="checkAppearance1IsShown" classname="com.afundacion.fp.clips.T016Appearances" time="13.411">
+    <failure>java.lang.AssertionError
+at org.junit.Assert.fail(Assert.java:86)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertTrue(Assert.java:52)
+at com.afundacion.fp.clips.T016Appearances.checkAppearance1IsShown(T016Appearances.java:173)</failure>
+  </testcase>
+  <testcase name="checkModelObjectsAreCorrect" classname="com.afundacion.fp.clips.T016Appearances" time="3.267">
+    <failure>java.lang.reflect.InvocationTargetException
+at java.lang.reflect.Constructor.newInstance0(Native Method)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:343)
+at com.afundacion.fp.clips.T016Appearances.checkModelObjectsAreCorrect(T016Appearances.java:88)
+... 31 trimmed
+Caused by: org.json.JSONException: No value for characterDescription
+at org.json.JSONObject.get(JSONObject.java:392)
+at org.json.JSONObject.getString(JSONObject.java:553)
+at com.afundacion.fp.clips.Character.&lt;init&gt;(Character.java:31)
+... 35 more</failure>
+  </testcase>
+  <testcase name="checkRecyclerClassHasCorrectConstructorAndAttributes" classname="com.afundacion.fp.clips.T016Appearances" time="2.771" />
+  <testcase name="checkRecyclerIsCorrectlyPositioned" classname="com.afundacion.fp.clips.T016Appearances" time="7.696">
+    <failure>java.lang.AssertionError
+at org.junit.Assert.fail(Assert.java:86)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertTrue(Assert.java:52)
+at com.afundacion.fp.clips.T016Appearances.checkRecyclerIsCorrectlyPositioned(T016Appearances.java:153)</failure>
+  </testcase>
+  <testcase name="checkCharacterViewHolderClassIsCorrect" classname="com.afundacion.fp.clips.T016Appearances" time="3.359" />
+  <testcase name="checkViewHolderXmlIsCorrect" classname="com.afundacion.fp.clips.T016Appearances" time="2.888" />
+  <testcase name="checkAlphaTransitions" classname="com.afundacion.fp.clips.T017FadeOut" time="14.22">
+    <failure>java.lang.AssertionError
+at org.junit.Assert.fail(Assert.java:86)
+at org.junit.Assert.assertTrue(Assert.java:41)
+at org.junit.Assert.assertTrue(Assert.java:52)
+at com.afundacion.fp.clips.T017FadeOut.checkAlphaTransitions(T017FadeOut.java:60)</failure>
+  </testcase>
+</testsuite>
