@@ -81,7 +81,7 @@ public class VideoActivity extends AppCompatActivity {
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
-                Server.name,
+                Server.name + "/appearances",
                 null,
 
                 new Response.Listener<JSONArray>() {
