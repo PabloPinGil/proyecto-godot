@@ -14,6 +14,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="carole.doe"/>
+        android:hint="carole.doe"
+        android:id="@+id/editText"/>
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText"
+        android:inputType="textPassword"
+        android:hint="Contraseña"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
