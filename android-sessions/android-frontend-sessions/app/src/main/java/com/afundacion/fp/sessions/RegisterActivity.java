@@ -7,11 +7,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class RegisterActivity extends AppCompatActivity {
     // Creamos dos atributos nuevos
     private EditText editTextUser;
     private EditText editTextPassword;
     private Button registerButton;
+    private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         registerButton = findViewById(R.id.registerButton);
 
+        requestQueue = Volley.newRequestQueue(this);
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,5 +45,33 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    private void sendPostRequest() {
+        JSONObject requestBody = new JSONObject();
+        try {
+            requestBody.put("username", editTextUser.getText().toString());
+            requestBody.put("password", editTextPassword.getText().toString());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                Server.name + "/users",
+                requestBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(RegisterActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        this.requestQueue.add(request);
+    }
 }
