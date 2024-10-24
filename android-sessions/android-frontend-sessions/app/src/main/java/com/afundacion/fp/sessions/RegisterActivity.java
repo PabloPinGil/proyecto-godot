@@ -67,6 +67,16 @@ public class RegisterActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse == null) {
+                            Toast.makeText(RegisterActivity.this, "La conexión no se ha establecido", Toast.LENGTH_LONG).show();
+                        } else {
+                            // El servidor ha dado una respuesta de error
+
+                            // La siguiente variable contendrá el código HTTP,
+                            // por ejemplo 401, 500,...
+                            int serverCode = error.networkResponse.statusCode;
+                            Toast.makeText(RegisterActivity.this, "El servidor respondió con: " + serverCode, Toast.LENGTH_LONG).show();
+                        }
 
                     }
                 }
@@ -74,4 +84,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         this.requestQueue.add(request);
     }
+
+
 }
