@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:hint="carole.doe"
-        android:id="@+id/editText"/>
+        android:id="@+id/editTextUser"/>
 
     <EditText
         android:layout_width="0dp"
@@ -23,9 +23,20 @@
         app:layout_constraintWidth_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText"
+        app:layout_constraintTop_toBottomOf="@id/editTextUser"
         android:inputType="textPassword"
         android:hint="Contraseña"
+        android:id="@+id/editTextPassword"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Crear cuenta"
+        android:id="@+id/registerButton"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
