@@ -46,11 +46,12 @@ public class StatusActivity extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(context);
                 myBuilder.setView(inflateDialog());
-                
+
                 myBuilder.setPositiveButton("Actualizar estado", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(context, "Modificar a: " + editTextNewStatus.getText().toString(), Toast.LENGTH_LONG).show();
+                        putNewStatus();
                     }
                 }); // Esto añade un botón al diálogo
 
@@ -105,6 +106,40 @@ public class StatusActivity extends AppCompatActivity {
         View inflatedView = inflater.inflate(R.layout.new_status_dialog, null);
         editTextNewStatus = inflatedView.findViewById(R.id.edit_text_change_status);
         return inflatedView;
+    }
+
+    private void putNewStatus() {
+        // Recuperamos el nombre de usuario de las preferencias
+        SharedPreferences preferences = getSharedPreferences("SESSIONS_APP_PREFS", MODE_PRIVATE);
+        String username = preferences.getString("VALID_USERNAME", null); // null será el valor por defecto
+        // Creamos el cuerpo de la petición
+        JSONObject requestBody = new JSONObject();
+        try {
+            requestBody.put("status", editTextNewStatus.getText().toString());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+        JsonObjectRequestWithAuthHeader request = new JsonObjectRequestWithAuthHeader(
+                Request.Method.PUT,
+                Server.name + "/users/" + username + "/status",
+                requestBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        textViewStatus.setText("Cargando");
+                        getStatus();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                },
+                context
+        );
+        queue.add(request);
     }
 
 }
