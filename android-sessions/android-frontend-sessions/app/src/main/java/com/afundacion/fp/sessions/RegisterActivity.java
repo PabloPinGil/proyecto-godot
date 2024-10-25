@@ -30,8 +30,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // Los inicializamos a partir de su contraparte en el XML
-        editTextUser = findViewById(R.id.editTextUser);
-        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextUser = findViewById(R.id.editTextUserRegister);
+        editTextPassword = findViewById(R.id.editTextPasswordRegister);
         registerButton = findViewById(R.id.registerButton);
 
         requestQueue = Volley.newRequestQueue(this);
@@ -40,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Código que se ejecuta al hacer clic en el botón
+                sendPostRequest();
                 Toast.makeText(getApplicationContext(), "Usuario: " + editTextUser.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -62,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(RegisterActivity.this, "Usuario registrado", Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {

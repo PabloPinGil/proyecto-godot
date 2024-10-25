@@ -32,5 +32,11 @@
         <activity
             android:name=".InstrumentationLoginTestHelperActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"> <!-- exported debe indicarse como "true" para actividades LAUNCHER desde Android 12 -->
+        </activity>
+
     </application>
 </manifest>
