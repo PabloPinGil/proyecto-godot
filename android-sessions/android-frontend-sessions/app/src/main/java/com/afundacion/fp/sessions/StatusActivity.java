@@ -1,9 +1,12 @@
 package com.afundacion.fp.sessions;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,7 @@ public class StatusActivity extends AppCompatActivity {
     private RequestQueue queue;
     private TextView textViewStatus;
     private FloatingActionButton buttonNewStatus;
+    private EditText editTextNewStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,15 @@ public class StatusActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(context);
-                myBuilder.setPositiveButton("Actualizar estado", null); // Esto añade un botón al diálogo
+                myBuilder.setView(inflateDialog());
+                
+                myBuilder.setPositiveButton("Actualizar estado", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(context, "Modificar a: " + editTextNewStatus.getText().toString(), Toast.LENGTH_LONG).show();
+                    }
+                }); // Esto añade un botón al diálogo
+
                 AlertDialog myDialog = myBuilder.create(); // Esta línea es como 'new AlertDialog'
                 myDialog.show();
             }
@@ -87,4 +99,12 @@ public class StatusActivity extends AppCompatActivity {
         );
         queue.add(request);
     }
+
+    private View inflateDialog() {
+        LayoutInflater inflater = getLayoutInflater();
+        View inflatedView = inflater.inflate(R.layout.new_status_dialog, null);
+        editTextNewStatus = inflatedView.findViewById(R.id.edit_text_change_status);
+        return inflatedView;
+    }
+
 }
