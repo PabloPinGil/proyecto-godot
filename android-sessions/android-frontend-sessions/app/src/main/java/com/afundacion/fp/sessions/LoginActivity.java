@@ -90,7 +90,12 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        if (error.networkResponse == null) {
+                            Toast.makeText(LoginActivity.this, "La conexión no se ha establecido", Toast.LENGTH_LONG).show();
+                        } else {
+                            int serverCode = error.networkResponse.statusCode;
+                            Toast.makeText(LoginActivity.this, "El servidor respondió con: " + serverCode, Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
         );
