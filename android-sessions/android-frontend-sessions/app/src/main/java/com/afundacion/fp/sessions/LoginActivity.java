@@ -85,6 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         // Si la respuesta está OK, mostramos un Toast
                         Toast.makeText(context, "Token de sesión: " + receivedToken, Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(LoginActivity.this, StatusActivity.class);
+                        startActivity(intent);
                     }
                 },
                 new Response.ErrorListener() {
