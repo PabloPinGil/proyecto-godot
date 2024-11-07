@@ -1,18 +1,18 @@
 extends CharacterBody2D
 
 
-var wheel_base = 50  # Distance from front to rear wheel
-var steering_angle = 20  # Amount that front wheel turns, in degrees
-var steer_angle
-var engine_power = 800  # Forward acceleration force.
+var wheel_base = 50  # distancia entre ruedas
+var steering_angle = 20  # ángulo de giro máximo de las ruedas delanteras
+var steer_angle  # ángulo de las ruedas
+var engine_power = 800  # fuerza de acelerazión
 var acceleration = Vector2.ZERO
-var friction = -0.9
-var drag = -0.0015
-var braking = -450
-var max_speed_reverse = 350
-var slip_speed = 800  # Speed where traction is reduced
-var traction_fast = 0.1  # High-speed traction
-var traction_slow = 0.7  # Low-speed traction
+var friction = -0.9  # fuerza de fricción
+var drag = -0.0015  # fuerza de arrastre
+var braking = -450  # fuerza de freno
+var max_speed_reverse = 350  #velocidad máxima en marcha atrás
+var slip_speed = 800  # velocidad donde se reduce la tracción
+var traction_fast = 0.1  # tracción a alta velocidad
+var traction_slow = 0.7  # tracción a baja velocidad
 
 
 
