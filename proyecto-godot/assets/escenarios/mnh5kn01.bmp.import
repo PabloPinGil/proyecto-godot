@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bir0s8qrl73rv"
-path="res://.godot/imported/blanco.png-ea11e88d20e5d3090e3c2c6988d131bd.ctex"
+uid="uid://df3w7hqdohho8"
+path="res://.godot/imported/mnh5kn01.bmp-6c92f66240351bf25e199a6aedc8a97b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blanco.png"
-dest_files=["res://.godot/imported/blanco.png-ea11e88d20e5d3090e3c2c6988d131bd.ctex"]
+source_file="res://assets/escenarios/mnh5kn01.bmp"
+dest_files=["res://.godot/imported/mnh5kn01.bmp-6c92f66240351bf25e199a6aedc8a97b.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkrw18rknsg16"]
 
-[ext_resource type="Texture2D" uid="uid://bir0s8qrl73rv" path="res://assets/blanco.png" id="1_7qxiw"]
-[ext_resource type="Script" path="res://scenes/Main.gd" id="1_24xtk"]
+[ext_resource type="Texture2D" uid="uid://bir0s8qrl73rv" path="res://assets/escenarios/blanco.png" id="1_7qxiw"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_24xtk"]
 [ext_resource type="PackedScene" uid="uid://cb7g8lgwj6tyj" path="res://scenes/player.tscn" id="3_6l1a2"]
 [ext_resource type="PackedScene" uid="uid://bbgh8sdaqgn2e" path="res://scenes/bala.tscn" id="3_msooh"]
 [ext_resource type="PackedScene" uid="uid://bmhpmeklevq1l" path="res://scenes/coche_enemigo.tscn" id="5_sxorq"]
@@ -23,3 +23,7 @@ bala = ExtResource("3_msooh")
 [node name="bala" parent="." instance=ExtResource("3_msooh")]
 
 [node name="coche_enemigo" parent="." groups=["enemy"] instance=ExtResource("5_sxorq")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

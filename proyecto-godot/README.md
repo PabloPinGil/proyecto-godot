@@ -11,7 +11,7 @@ Cosas por implementar:
 [ ] Distintas arenas y sus colisiones
 [ ] Obstáculos en la arena
 [ ] Potenciadores
-[ ] Mecánica de disparo
+[x] Mecánica de disparo
 [ ] Mecánica de turbo
 [ ] Menú inicial
 [ ] Assets y texturas
