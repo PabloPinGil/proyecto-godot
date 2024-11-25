@@ -1,11 +1,11 @@
 extends Area2D
 
-var speed = 1000
+var speed = 1300
 var direction
 
 func _ready():
 	# Obtén el nodo del jugador desde la escena
-	var player = get_node("/root/Node2D/player")  # Ajusta la ruta de acuerdo a tu jerarquía de nodos
+	var player = get_node("/root/Main/player")  # Ajusta la ruta de acuerdo a tu jerarquía de nodos
 	var player_position = player.global_position  # La posición global del jugador
 	var cursor_position = get_global_mouse_position()  # La posición global del cursor
 
