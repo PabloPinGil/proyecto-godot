@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmhpmeklevq1l"]
+
+[ext_resource type="Script" path="res://scenes/coche_enemigo.gd" id="1_4q54d"]
+[ext_resource type="Texture2D" uid="uid://di3op63mdmudx" path="res://assets/coupe_red.png" id="2_padl7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80gwg"]
+radius = 29.0
+height = 150.0
+
+[node name="coche_enemigo" type="CharacterBody2D"]
+position = Vector2(22, -3)
+script = ExtResource("1_4q54d")
+target = NodePath("../player")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(112, 43)
+rotation = 1.5708
+scale = Vector2(1.99658, 2.00043)
+texture = ExtResource("2_padl7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(112, 43)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_80gwg")
+metadata/_edit_group_ = true

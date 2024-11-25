@@ -12,6 +12,8 @@ var max_speed_reverse = 6000
 var slip_speed = 800
 var traction_fast = 0.1
 var traction_slow = 0.7
+@export var vida_max = 2
+var vida = vida_max
 
 @export var target : NodePath  # Referencia al jugador
 
@@ -19,6 +21,13 @@ func _ready():
 	# Asegúrate de que el enemigo tenga un objetivo (el jugador).
 	if target == NodePath(""):
 		print("Error: No se ha asignado un objetivo para el enemigo.")
+
+
+func get_hit(damage):
+	vida -= damage
+	if vida <= 0:
+		queue_free()
+
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO

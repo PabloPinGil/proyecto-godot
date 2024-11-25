@@ -1,25 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkrw18rknsg16"]
+[gd_scene load_steps=6 format=3 uid="uid://bkrw18rknsg16"]
 
 [ext_resource type="Texture2D" uid="uid://bir0s8qrl73rv" path="res://assets/blanco.png" id="1_7qxiw"]
-[ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_8e8gk"]
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_24xtk"]
-[ext_resource type="Texture2D" uid="uid://bodlruuleiqn2" path="res://assets/icon.svg" id="3_lacpx"]
+[ext_resource type="PackedScene" uid="uid://cb7g8lgwj6tyj" path="res://scenes/player.tscn" id="3_6l1a2"]
 [ext_resource type="PackedScene" uid="uid://bbgh8sdaqgn2e" path="res://scenes/bala.tscn" id="3_msooh"]
-[ext_resource type="Script" path="res://scenes/bala.gd" id="4_qf2iv"]
-[ext_resource type="Texture2D" uid="uid://t3xlsw3i8r1y" path="res://assets/player/coupe_midnight.png" id="5_i7quo"]
-[ext_resource type="Script" path="res://scenes/coche_enemigo.gd" id="6_lrqbm"]
-[ext_resource type="Texture2D" uid="uid://di3op63mdmudx" path="res://assets/coupe_red.png" id="9_2qfln"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_osny8"]
-radius = 14.5
-height = 75.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_12qym"]
-radius = 3.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80gwg"]
-radius = 29.0
-height = 150.0
+[ext_resource type="PackedScene" uid="uid://bmhpmeklevq1l" path="res://scenes/coche_enemigo.tscn" id="5_sxorq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_24xtk")
@@ -32,57 +17,9 @@ scale = Vector2(10, 10)
 texture = ExtResource("1_7qxiw")
 metadata/_edit_group_ = true
 
-[node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(-70, 95)
-scale = Vector2(2, 2)
-script = ExtResource("1_8e8gk")
-Bala = ExtResource("3_msooh")
-metadata/_edit_group_ = true
+[node name="player" parent="." instance=ExtResource("3_6l1a2")]
+bala = ExtResource("3_msooh")
 
-[node name="Marker2D" type="Marker2D" parent="player"]
+[node name="bala" parent="." instance=ExtResource("3_msooh")]
 
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-rotation = 1.5708
-texture = ExtResource("5_i7quo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(0, -1.90735e-06)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_osny8")
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-metadata/_edit_group_ = true
-
-[node name="shoot_timer" type="Timer" parent="player"]
-one_shot = true
-
-[node name="bala" type="Area2D" parent="."]
-script = ExtResource("4_qf2iv")
-
-[node name="Sprite2D" type="Sprite2D" parent="bala"]
-position = Vector2(0, 2.98023e-07)
-scale = Vector2(0.046875, 0.046875)
-texture = ExtResource("3_lacpx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bala"]
-shape = SubResource("CircleShape2D_12qym")
-
-[node name="coche_enemigo" type="CharacterBody2D" parent="."]
-position = Vector2(22, -3)
-script = ExtResource("6_lrqbm")
-target = NodePath("../player")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="coche_enemigo"]
-position = Vector2(112, 43)
-rotation = 1.5708
-scale = Vector2(1.99658, 2.00043)
-texture = ExtResource("9_2qfln")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="coche_enemigo"]
-position = Vector2(112, 43)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_80gwg")
-metadata/_edit_group_ = true
+[node name="coche_enemigo" parent="." groups=["enemy"] instance=ExtResource("5_sxorq")]

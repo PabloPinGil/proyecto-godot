@@ -6,8 +6,8 @@ Además, irán apareciendo distintos potenciadores que te facilitarán la superv
 
 Cosas por implementar:
 [x] Movimiento del coche
-[ ] Disparo del coche
-[ ] Enemigos
+[x] Disparo del coche
+[x] Enemigos
 [ ] Distintas arenas y sus colisiones
 [ ] Obstáculos en la arena
 [ ] Potenciadores

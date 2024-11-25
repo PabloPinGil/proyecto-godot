@@ -14,7 +14,7 @@ var slip_speed = 800
 var traction_fast = 0.1  
 var traction_slow = 0.7
 var fire_rate = 0.25
-@export var Bala : PackedScene
+@export var bala : PackedScene
 
 
 func _physics_process(delta):
@@ -27,8 +27,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("shoot") and $shoot_timer.is_stopped():
 		shoot()
-		
-	print(velocity.length())
 
 
 func get_input():
@@ -82,7 +80,7 @@ func calculate_steering(delta):
 
 func shoot():
 	# Crear la bala
-	var b = Bala.instantiate()
+	var b = bala.instantiate()
 	owner.add_child(b)
 	b.transform = $Marker2D.global_transform
 
