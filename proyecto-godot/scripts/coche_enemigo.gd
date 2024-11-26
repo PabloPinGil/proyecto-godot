@@ -17,6 +17,7 @@ var vida = vida_max
 
 @export var target : NodePath  # Referencia al jugador
 
+
 func _ready():
 	# Asegúrate de que el enemigo tenga un objetivo (el jugador).
 	if target == NodePath(""):
@@ -31,16 +32,19 @@ func get_hit(damage):
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
-	chase_target()
+	
+	if $RayCast_delante.is_colliding():
+		avoid_collision()
+	else:
+		chase_target()
+	
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	move_and_slide()
 
+
 func chase_target():
-	# Obtenemos la posición del jugador
-	if target == NodePath("") or not get_node_or_null(target):
-		return  # Si no hay objetivo, no hacemos nada
 	var player = get_node(target)
 	var direction_to_player = (player.global_position - global_position).normalized()
 	var distance_to_player = global_position.distance_to(player.global_position)
@@ -57,10 +61,25 @@ func chase_target():
 	var angle_difference = wrapf(angle_to_player - current_angle, -PI, PI)
 	steer_angle = clamp(angle_difference, -deg_to_rad(steering_angle), deg_to_rad(steering_angle))
 
-func apply_friction():
-	if velocity.length() < 5:
-		velocity = Vector2.ZERO
 
+func avoid_collision():
+	var normal = $RayCast_delante.get_collision_normal()
+	var direction = velocity.normalized()
+	var avoidance_direction
+
+	# Calcula el ángulo de rotación y decide si girar a la izquierda o a la derecha
+	var angle_to_normal = direction.angle_to(normal)
+
+	# Si el ángulo entre la dirección del movimiento y la normal es pequeño, gira a la derecha
+	if angle_to_normal < deg_to_rad(90):
+		avoidance_direction = normal.rotated(deg_to_rad(90))
+	else:
+		avoidance_direction = normal.rotated(deg_to_rad(-90))
+
+	steer_angle
+
+
+func apply_friction():
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 
@@ -68,6 +87,7 @@ func apply_friction():
 		friction_force *= 3
 
 	acceleration += drag_force + friction_force
+
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0

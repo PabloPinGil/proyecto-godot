@@ -13,6 +13,7 @@ func _ready():
 
 	# Calcular la dirección hacia el cursor
 	direction = (cursor_position - player_position).normalized()
+	$Sprite2D.rotation = direction.angle()
 
 
 func _physics_process(delta):
