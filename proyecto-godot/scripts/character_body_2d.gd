@@ -79,10 +79,10 @@ func calculate_steering(delta):
 
 
 func shoot():
+	$AudioStreamPlayer.play()
 	# Crear la bala
 	var b = bala.instantiate()
 	owner.add_child(b)
 	b.transform = $Marker2D.global_transform
-
 	# Esperar el tiempo de recarga antes de permitir disparar de nuevo
 	$shoot_timer.start(fire_rate)

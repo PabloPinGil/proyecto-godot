@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3jkbjm306403"
+path="res://.godot/imported/Tokyopill - Pink Blood +.mp3-e7df4f96f369ff9fa4a95bf4d03a0778.mp3str"
+
+[deps]
+
+source_file="res://assets/sonidos/música/Tokyopill - Pink Blood +.mp3"
+dest_files=["res://.godot/imported/Tokyopill - Pink Blood +.mp3-e7df4f96f369ff9fa4a95bf4d03a0778.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

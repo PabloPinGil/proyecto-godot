@@ -1,29 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkrw18rknsg16"]
+[gd_scene load_steps=8 format=3 uid="uid://bkrw18rknsg16"]
 
-[ext_resource type="Texture2D" uid="uid://bir0s8qrl73rv" path="res://assets/escenarios/blanco.png" id="1_7qxiw"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_24xtk"]
+[ext_resource type="PackedScene" uid="uid://bfp0dtckilkeq" path="res://scenes/escenario_1.tscn" id="2_g7p2m"]
 [ext_resource type="PackedScene" uid="uid://cb7g8lgwj6tyj" path="res://scenes/player.tscn" id="3_6l1a2"]
 [ext_resource type="PackedScene" uid="uid://bbgh8sdaqgn2e" path="res://scenes/bala.tscn" id="3_msooh"]
 [ext_resource type="PackedScene" uid="uid://bmhpmeklevq1l" path="res://scenes/coche_enemigo.tscn" id="5_sxorq"]
+[ext_resource type="PackedScene" uid="uid://c4qodcb0rvfhi" path="res://scenes/sierra.tscn" id="6_n16ta"]
+[ext_resource type="PackedScene" uid="uid://bs6curr2ouuih" path="res://scenes/banda_sonora.tscn" id="7_7swja"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_24xtk")
 
-[node name="escenario1" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="escenario1"]
-position = Vector2(-4, -4)
-scale = Vector2(10, 10)
-texture = ExtResource("1_7qxiw")
-metadata/_edit_group_ = true
+[node name="escenario1" parent="." instance=ExtResource("2_g7p2m")]
 
 [node name="player" parent="." instance=ExtResource("3_6l1a2")]
+collision_layer = 2
 bala = ExtResource("3_msooh")
 
 [node name="bala" parent="." instance=ExtResource("3_msooh")]
 
 [node name="coche_enemigo" parent="." groups=["enemy"] instance=ExtResource("5_sxorq")]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="menu" type="MarginContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="sierra" parent="." instance=ExtResource("6_n16ta")]
+position = Vector2(1216, 3)
+scale = Vector2(0.5, 0.5)
+
+[node name="banda_sonora" parent="." instance=ExtResource("7_7swja")]

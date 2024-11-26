@@ -8,11 +8,11 @@ Cosas por implementar:
 [x] Movimiento del coche
 [x] Disparo del coche
 [x] Enemigos
-[ ] Distintas arenas y sus colisiones
-[ ] Obstáculos en la arena
+[x] Distintas arenas y sus colisiones
+[x] Obstáculos en la arena
 [ ] Potenciadores
 [x] Mecánica de disparo
 [ ] Mecánica de turbo
 [ ] Menú inicial
-[ ] Assets y texturas
+[x] Assets y texturas
 [ ] Leaderboard con integración con API

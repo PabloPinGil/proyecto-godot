@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3qpleprqu1yp"
+path="res://.godot/imported/Tokyopill - Club Cyberia.mp3-24a5ca19aed8595c8d1166ca916751fd.mp3str"
+
+[deps]
+
+source_file="res://assets/sonidos/música/Tokyopill - Club Cyberia.mp3"
+dest_files=["res://.godot/imported/Tokyopill - Club Cyberia.mp3-24a5ca19aed8595c8d1166ca916751fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

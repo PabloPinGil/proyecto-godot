@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c200rqvmg7ioa"
+path="res://.godot/imported/Tokyopill - T o K Y o F R U I T !.mp3-bc2b9853168e920e57b3e4c770f22236.mp3str"
+
+[deps]
+
+source_file="res://assets/sonidos/música/Tokyopill - T o K Y o F R U I T !.mp3"
+dest_files=["res://.godot/imported/Tokyopill - T o K Y o F R U I T !.mp3-bc2b9853168e920e57b3e4c770f22236.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

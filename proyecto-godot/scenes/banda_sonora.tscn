@@ -1,0 +1,19 @@
+[gd_scene load_steps=7 format=3 uid="uid://bs6curr2ouuih"]
+
+[ext_resource type="AudioStream" uid="uid://3qpleprqu1yp" path="res://assets/sonidos/música/Tokyopill - Club Cyberia.mp3" id="1_dpjqw"]
+[ext_resource type="AudioStream" uid="uid://dogtesdg1q3ai" path="res://assets/sonidos/música/Tokyopill - Let's All Love Lain.mp3" id="2_b6hx5"]
+[ext_resource type="AudioStream" uid="uid://b3jkbjm306403" path="res://assets/sonidos/música/Tokyopill - Pink Blood +.mp3" id="3_xpc01"]
+[ext_resource type="AudioStream" uid="uid://c200rqvmg7ioa" path="res://assets/sonidos/música/Tokyopill - T o K Y o F R U I T !.mp3" id="4_m0ubj"]
+[ext_resource type="AudioStream" uid="uid://ksqdbiw5s4of" path="res://assets/sonidos/música/Tokyopill - Virtual Sanctuary.mp3" id="5_jxl86"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_fksys"]
+stream_count = 5
+stream_0 = ExtResource("1_dpjqw")
+stream_1 = ExtResource("2_b6hx5")
+stream_2 = ExtResource("3_xpc01")
+stream_3 = ExtResource("4_m0ubj")
+stream_4 = ExtResource("5_jxl86")
+
+[node name="banda_sonora" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamPlaylist_fksys")
+autoplay = true

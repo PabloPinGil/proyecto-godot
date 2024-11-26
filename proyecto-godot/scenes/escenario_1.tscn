@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfp0dtckilkeq"]
+
+[ext_resource type="Texture2D" uid="uid://21dakyk64443" path="res://assets/escenarios/dibujo.svg" id="1_f0ont"]
+
+[node name="escenario1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -4)
+scale = Vector2(5, 5)
+texture = ExtResource("1_f0ont")
+metadata/_edit_group_ = true
