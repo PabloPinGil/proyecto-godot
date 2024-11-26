@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/sprite_sierra.gd" id="2_v1pab"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_falrp"]
-radius = 267.479
+radius = 293.171
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aga52"]
 radius = 199.003

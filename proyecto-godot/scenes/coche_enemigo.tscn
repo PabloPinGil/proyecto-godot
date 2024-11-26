@@ -8,20 +8,26 @@ radius = 29.0
 height = 150.0
 
 [node name="coche_enemigo" type="CharacterBody2D"]
-position = Vector2(22, -3)
 script = ExtResource("1_4q54d")
 target = NodePath("../player")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(112, 43)
+position = Vector2(0.0162354, -0.0493164)
 rotation = 1.5708
 scale = Vector2(1.99658, 2.00043)
 texture = ExtResource("2_padl7")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(112, 43)
+position = Vector2(0.0162277, -0.0493164)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_80gwg")
-metadata/_edit_group_ = true
+
+[node name="RayCast_delante" type="RayCast2D" parent="."]
+target_position = Vector2(165, 0)
+collision_mask = 8
+collide_with_areas = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_layers = 8
+avoidance_mask = 8

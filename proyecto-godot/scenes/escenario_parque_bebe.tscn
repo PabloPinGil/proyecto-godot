@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://q6ny1fbbj2rb"]
+
+[ext_resource type="Texture2D" uid="uid://dpkjlwaxplhbm" path="res://assets/escenarios/parquebebe.png" id="1_nncus"]
+[ext_resource type="PackedScene" uid="uid://c4qodcb0rvfhi" path="res://scenes/sierra.tscn" id="2_lptwd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gg3us"]
+radius = 195.0
+height = 1220.0
+
+[node name="escenario_parque_bebe" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nncus")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(955, -506, 960, 2, 953, -74, 920, -159, 837, -265, 738, -344, 625, -408, 517, -455, 377, -496, 206, -530, 89, -536, -58, -537, -182, -528, -318, -509, -485, -465, -639, -404, -726, -353, -803, -302, -871, -234, -934, -134, -960, -52, -960, 0, -972, -781, 955, -773)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+rotation = 3.14159
+polygon = PackedVector2Array(955, -506, 960, 2, 953, -74, 920, -159, 837, -265, 738, -344, 625, -408, 517, -455, 377, -496, 206, -530, 89, -536, -58, -537, -182, -528, -318, -509, -485, -465, -639, -404, -726, -353, -803, -302, -871, -234, -934, -134, -960, -52, -960, 0, -972, -781, 955, -773)
+
+[node name="sierra" parent="." instance=ExtResource("2_lptwd")]
+position = Vector2(0, 0)
+scale = Vector2(0.8, 0.8)
+
+[node name="sierra2" parent="." instance=ExtResource("2_lptwd")]
+position = Vector2(468, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="sierra3" parent="." instance=ExtResource("2_lptwd")]
+position = Vector2(-468, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="area_sierras" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_sierras"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gg3us")
+debug_color = Color(0, 0.646703, 0.230477, 0.42)
