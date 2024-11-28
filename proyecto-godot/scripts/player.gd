@@ -32,20 +32,6 @@ func _physics_process(delta):
 		shoot()
 
 
-func curar():
-	vida += 1
-	if vida > vida_max:
-		vida = vida_max
-
-
-func get_hit(delta):
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		var collider = collision.get_collider()
-		if collider.is_in_group("enemy"):
-			vida -= 1
-
-
 func get_input():
 	var turn = 0
 	if Input.is_action_pressed("steer_right"):
@@ -67,7 +53,9 @@ func apply_friction():
 	var friction_force = velocity * friction  
 	var drag_force = velocity * velocity.length() * drag  
 	
-	if velocity.length() < 100:  # aumenta la fricción por debajo de esta velocidad
+	if velocity.length() < 100:
+		friction_force *= 0.1  # Reduce el factor de amplificación
+	else:
 		friction_force *= 3
 	
 	acceleration += drag_force + friction_force  #aplica la fricción y el arrastre
@@ -95,10 +83,33 @@ func calculate_steering(delta):
 
 
 func shoot():
-	$AudioStreamPlayer.play()
+	$disparo.play()
 	# Crear la bala
 	var b = bala.instantiate()
 	owner.add_child(b)
 	b.transform = $Marker2D.global_transform
 	# Esperar el tiempo de recarga antes de permitir disparar de nuevo
 	$shoot_timer.start(fire_rate)
+
+
+func curar():
+	vida += 1
+	if vida > vida_max:
+		vida = vida_max
+
+
+func potenciador():
+	fire_rate = 0.4
+	await get_tree().create_timer(3.0).timeout
+	fire_rate = 0.25
+
+
+func get_hit(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var collider = collision.get_collider()
+		if collider.is_in_group("enemy"):
+			vida -= 1
+	
+	await get_tree().create_timer(3.0).timeout
+	print(vida)

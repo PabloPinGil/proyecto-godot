@@ -10,7 +10,7 @@ Cosas por implementar:
 [x] Enemigos
 [x] Distintas arenas y sus colisiones
 [x] Obstáculos en la arena
-[ ] Potenciadores
+[x] Potenciadores
 [x] Mecánica de disparo
 [ ] Mecánica de turbo
 [ ] Menú inicial

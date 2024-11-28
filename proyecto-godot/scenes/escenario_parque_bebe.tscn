@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://q6ny1fbbj2rb"]
+[gd_scene load_steps=6 format=3 uid="uid://q6ny1fbbj2rb"]
 
 [ext_resource type="Texture2D" uid="uid://dpkjlwaxplhbm" path="res://assets/escenarios/parquebebe.png" id="1_nncus"]
 [ext_resource type="PackedScene" uid="uid://c4qodcb0rvfhi" path="res://scenes/sierra.tscn" id="2_lptwd"]
+[ext_resource type="PackedScene" uid="uid://cb7g8lgwj6tyj" path="res://scenes/player.tscn" id="3_5awwm"]
+[ext_resource type="PackedScene" uid="uid://bmhpmeklevq1l" path="res://scenes/coche_enemigo.tscn" id="4_7nv4v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gg3us"]
 radius = 195.0
 height = 1220.0
 
 [node name="escenario_parque_bebe" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nncus")
@@ -34,10 +37,17 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-468, 0)
 scale = Vector2(0.5, 0.5)
 
-[node name="area_sierras" type="Area2D" parent="."]
-collision_layer = 8
+[node name="area_sierras" type="CharacterBody2D" parent="."]
+collision_layer = 32
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_sierras"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gg3us")
 debug_color = Color(0, 0.646703, 0.230477, 0.42)
+
+[node name="player" parent="." instance=ExtResource("3_5awwm")]
+position = Vector2(-317.5, 355.833)
+
+[node name="coche_enemigo" parent="." instance=ExtResource("4_7nv4v")]
+position = Vector2(226.667, 355.833)

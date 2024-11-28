@@ -32,12 +32,7 @@ func get_hit(damage):
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
-	
-	if $RayCast_delante.is_colliding():
-		avoid_collision()
-	else:
-		chase_target()
-	
+	chase_target()
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta
@@ -62,16 +57,13 @@ func chase_target():
 	steer_angle = clamp(angle_difference, -deg_to_rad(steering_angle), deg_to_rad(steering_angle))
 
 
-func avoid_collision():
-	var normal = $RayCast_delante.get_collision_normal()
-	
-
-
 func apply_friction():
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 
 	if velocity.length() < 100:
+		friction_force *= 0.5  # Reduce el factor de amplificación
+	else:
 		friction_force *= 3
 
 	acceleration += drag_force + friction_force

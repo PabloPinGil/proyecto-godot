@@ -1,5 +1,41 @@
-[gd_scene format=3 uid="uid://cmsqrtgyw3404"]
+[gd_scene load_steps=3 format=3 uid="uid://cmsqrtgyw3404"]
+
+[ext_resource type="Script" path="res://scripts/boton_jugar.gd" id="1_66hg0"]
+[ext_resource type="Script" path="res://scripts/boton_salir.gd" id="1_f0xa4"]
 
 [node name="menu" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -50.5
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.4013, 3.4013)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="boton_jugar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Jugar"
+script = ExtResource("1_66hg0")
+
+[node name="boton_opciones" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opciones"
+
+[node name="boton_salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+script = ExtResource("1_f0xa4")

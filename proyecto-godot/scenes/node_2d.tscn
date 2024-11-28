@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkrw18rknsg16"]
+[gd_scene load_steps=12 format=3 uid="uid://bkrw18rknsg16"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_24xtk"]
 [ext_resource type="PackedScene" uid="uid://cb7g8lgwj6tyj" path="res://scenes/player.tscn" id="3_6l1a2"]
@@ -7,12 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://bs6curr2ouuih" path="res://scenes/banda_sonora.tscn" id="7_7swja"]
 [ext_resource type="PackedScene" uid="uid://cmsqrtgyw3404" path="res://scenes/menu.tscn" id="7_weatr"]
 [ext_resource type="PackedScene" uid="uid://q6ny1fbbj2rb" path="res://scenes/escenario_parque_bebe.tscn" id="8_dujt4"]
+[ext_resource type="PackedScene" uid="uid://dg054inbg1c3q" path="res://scenes/cura.tscn" id="8_kqyg7"]
+[ext_resource type="PackedScene" uid="uid://bwbecm3bj1m6x" path="res://scenes/potenciador.tscn" id="9_v8txo"]
+[ext_resource type="PackedScene" uid="uid://cda401ebyu241" path="res://scenes/menu_niveles.tscn" id="10_w3n5r"]
+[ext_resource type="PackedScene" uid="uid://d26q4fud5kee6" path="res://scenes/menu_opciones.tscn" id="11_a4xfh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_24xtk")
 
 [node name="escenario_parque_bebe" parent="." instance=ExtResource("8_dujt4")]
-scale = Vector2(1.2, 1.2)
 
 [node name="player" parent="." instance=ExtResource("3_6l1a2")]
 position = Vector2(-197, 356)
@@ -27,3 +30,11 @@ position = Vector2(400, 356)
 [node name="menu" parent="." instance=ExtResource("7_weatr")]
 
 [node name="banda_sonora" parent="." instance=ExtResource("7_7swja")]
+
+[node name="cura" parent="." instance=ExtResource("8_kqyg7")]
+
+[node name="potenciador" parent="." instance=ExtResource("9_v8txo")]
+
+[node name="menu_niveles" parent="." instance=ExtResource("10_w3n5r")]
+
+[node name="menu_opciones" parent="." instance=ExtResource("11_a4xfh")]
