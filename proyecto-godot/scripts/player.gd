@@ -14,6 +14,8 @@ var slip_speed = 800
 var traction_fast = 0.1  
 var traction_slow = 0.7
 var fire_rate = 0.25
+var vida_max = 5
+var vida = vida_max
 @export var bala : PackedScene
 
 
@@ -23,10 +25,25 @@ func _physics_process(delta):
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta 
+	get_hit(delta)
 	move_and_slide()
 	
 	if Input.is_action_pressed("shoot") and $shoot_timer.is_stopped():
 		shoot()
+
+
+func curar():
+	vida += 1
+	if vida > vida_max:
+		vida = vida_max
+
+
+func get_hit(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var collider = collision.get_collider()
+		if collider.is_in_group("enemy"):
+			vida -= 1
 
 
 func get_input():
@@ -41,7 +58,6 @@ func get_input():
 		acceleration = transform.x * engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking
-
 
 
 func apply_friction():

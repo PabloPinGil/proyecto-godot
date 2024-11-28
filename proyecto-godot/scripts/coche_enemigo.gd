@@ -64,19 +64,7 @@ func chase_target():
 
 func avoid_collision():
 	var normal = $RayCast_delante.get_collision_normal()
-	var direction = velocity.normalized()
-	var avoidance_direction
-
-	# Calcula el ángulo de rotación y decide si girar a la izquierda o a la derecha
-	var angle_to_normal = direction.angle_to(normal)
-
-	# Si el ángulo entre la dirección del movimiento y la normal es pequeño, gira a la derecha
-	if angle_to_normal < deg_to_rad(90):
-		avoidance_direction = normal.rotated(deg_to_rad(90))
-	else:
-		avoidance_direction = normal.rotated(deg_to_rad(-90))
-
-	steer_angle
+	
 
 
 func apply_friction():

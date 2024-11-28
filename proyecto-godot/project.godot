@@ -26,6 +26,7 @@ enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")
 [global_group]
 
 enemy=""
+player=""
 
 [input]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkrw18rknsg16"]
+[gd_scene load_steps=8 format=3 uid="uid://bkrw18rknsg16"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_24xtk"]
 [ext_resource type="PackedScene" uid="uid://cb7g8lgwj6tyj" path="res://scenes/player.tscn" id="3_6l1a2"]
 [ext_resource type="PackedScene" uid="uid://bbgh8sdaqgn2e" path="res://scenes/bala.tscn" id="3_msooh"]
 [ext_resource type="PackedScene" uid="uid://bmhpmeklevq1l" path="res://scenes/coche_enemigo.tscn" id="5_sxorq"]
 [ext_resource type="PackedScene" uid="uid://bs6curr2ouuih" path="res://scenes/banda_sonora.tscn" id="7_7swja"]
+[ext_resource type="PackedScene" uid="uid://cmsqrtgyw3404" path="res://scenes/menu.tscn" id="7_weatr"]
 [ext_resource type="PackedScene" uid="uid://q6ny1fbbj2rb" path="res://scenes/escenario_parque_bebe.tscn" id="8_dujt4"]
 
 [node name="Main" type="Node"]
@@ -23,8 +24,6 @@ bala = ExtResource("3_msooh")
 [node name="coche_enemigo" parent="." groups=["enemy"] instance=ExtResource("5_sxorq")]
 position = Vector2(400, 356)
 
-[node name="menu" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="menu" parent="." instance=ExtResource("7_weatr")]
 
 [node name="banda_sonora" parent="." instance=ExtResource("7_7swja")]

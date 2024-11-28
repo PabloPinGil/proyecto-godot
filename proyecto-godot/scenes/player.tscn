@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb7g8lgwj6tyj"]
 
-[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_ua4tu"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ua4tu"]
 [ext_resource type="AudioStream" uid="uid://go5i0ecyc24p" path="res://assets/sonidos/efectos/shoot.wav" id="3_jplmg"]
 [ext_resource type="Texture2D" uid="uid://bn1wl5pv3ooet" path="res://assets/player/coupe_midnight.png" id="3_yto3s"]
 
@@ -8,7 +8,7 @@
 radius = 14.5
 height = 75.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-70, 95)
 scale = Vector2(2, 2)
 script = ExtResource("1_ua4tu")
@@ -24,10 +24,8 @@ texture = ExtResource("3_yto3s")
 position = Vector2(0, -1.90735e-06)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_osny8")
-metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-metadata/_edit_group_ = true
 
 [node name="shoot_timer" type="Timer" parent="."]
 one_shot = true
