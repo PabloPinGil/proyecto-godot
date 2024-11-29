@@ -1,7 +1,27 @@
-[gd_scene format=3 uid="uid://bvx420x4x3yok"]
+[gd_scene load_steps=3 format=3 uid="uid://bvx420x4x3yok"]
+
+[ext_resource type="Texture2D" uid="uid://ce2mn4mfj8c5y" path="res://assets/escenarios/escenario_infinito.png" id="1_6imue"]
+[ext_resource type="PackedScene" uid="uid://c4qodcb0rvfhi" path="res://scenes/sierra.tscn" id="2_djjbt"]
 
 [node name="escenario_infinito" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6imue")
+
+[node name="sierra2" parent="." instance=ExtResource("2_djjbt")]
+position = Vector2(-222, -1)
+scale = Vector2(0.24, 0.24)
+
+[node name="sierra3" parent="." instance=ExtResource("2_djjbt")]
+position = Vector2(220, 0)
+scale = Vector2(0.24, 0.24)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-440, -1, -435, -53, -416, -104, -383, -150, -338, -187, -282, -215, -228, -224, -173, -220, -121, -203, -81, -177, -48, -148, -25, -114, 26, -114, 48, -147, 89, -182, 140, -210, 193, -221, 246, -222, 297, -208, 338, -188, 376, -157, 400, -128, 419, -94, 431, -63, 439, -27, 441, 0, 528, -1, 522, -345, -523, -316, -531, 1)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+rotation = -3.14159
+polygon = PackedVector2Array(-440, -1, -435, -53, -416, -104, -383, -150, -338, -187, -282, -215, -228, -224, -173, -220, -121, -203, -81, -177, -48, -148, -25, -112, 24, -112, 48, -147, 89, -182, 140, -210, 193, -221, 246, -222, 297, -208, 338, -188, 376, -157, 400, -128, 419, -94, 431, -63, 439, -27, 441, 0, 528, -1, 522, -345, -523, -316, -531, 1)

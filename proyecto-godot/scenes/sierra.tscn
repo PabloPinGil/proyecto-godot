@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4qodcb0rvfhi"]
+[gd_scene load_steps=6 format=3 uid="uid://c4qodcb0rvfhi"]
 
 [ext_resource type="Texture2D" uid="uid://c1nq61ew4bp5w" path="res://assets/enemigos/sierra.png" id="1_8i842"]
+[ext_resource type="Script" path="res://scripts/sierra.gd" id="1_hj7o3"]
 [ext_resource type="Script" path="res://scripts/sprite_sierra.gd" id="2_v1pab"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_falrp"]
@@ -9,8 +10,9 @@ radius = 293.171
 [sub_resource type="CircleShape2D" id="CircleShape2D_aga52"]
 radius = 199.003
 
-[node name="sierra" type="Area2D"]
+[node name="sierra" type="Area2D" groups=["enemy"]]
 position = Vector2(454, -444)
+script = ExtResource("1_hj7o3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8i842")
@@ -24,3 +26,5 @@ shape = SubResource("CircleShape2D_falrp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_aga52")
 debug_color = Color(0.952825, 3.27289e-06, 0.556686, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

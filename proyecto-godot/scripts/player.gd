@@ -4,7 +4,7 @@ extends CharacterBody2D
 var wheel_base = 50 
 var steering_angle = 20  
 var steer_angle  
-var engine_power = 800  
+var engine_power = 1200  
 var acceleration = Vector2.ZERO  
 var friction = -0.9  
 var drag = -0.0015  
@@ -25,8 +25,10 @@ func _physics_process(delta):
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta 
-	get_hit(delta)
+	
+	handle_collision()
 	move_and_slide()
+	print(vida)
 	
 	if Input.is_action_pressed("shoot") and $shoot_timer.is_stopped():
 		shoot()
@@ -82,6 +84,16 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 
 
+func handle_collision():
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		if collision:
+			var normal = collision.get_normal()
+			
+			# Ajusta el vector de velocidad para alejarse del muro
+			velocity = velocity.slide(normal).normalized() * velocity.length() * 0.9
+
+
 func shoot():
 	$disparo.play()
 	# Crear la bala
@@ -104,12 +116,8 @@ func potenciador():
 	fire_rate = 0.25
 
 
-func get_hit(delta):
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		var collider = collision.get_collider()
-		if collider.is_in_group("enemy"):
-			vida -= 1
-	
+func get_hit():
+	vida -= 1
+	if vida <= 0:
+		queue_free()
 	await get_tree().create_timer(3.0).timeout
-	print(vida)
